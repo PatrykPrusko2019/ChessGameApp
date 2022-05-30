@@ -7,4 +7,4 @@ Possibility to play between two players:
 
 
 
-1. first sub branch "action_of_pawn_figure" -> pawn figure movement programming.
+1. first subbranch "action_of_pawn_figure" -> pawn figure movement programming.
