@@ -12,8 +12,14 @@ namespace ChessGameApp.LogicOfMovements
     public class SearchMovement
     {
         public Dictionary<string, string> ChessBoard { get; set; }
+
+        public FirstWhitePlayer FirstWhitePlayer { get; set; }
+        public SecondBlackPlayer SecondBlackPlayer { get; set; }
+        public PawnMovement PawnMovement { get; set; }
         public SearchMovement()
         {
+            PawnMovement = new PawnMovement();
+
             ChessBoard = new Dictionary<string, string>();
 
             //todo
@@ -64,20 +70,100 @@ namespace ChessGameApp.LogicOfMovements
 
         }
 
-        public bool SearchByMove(BasicFigure actualClickFigure, FirstWhitePlayer firstWhitePlayer, SecondBlackPlayer secondBlackPlayer)
+        public bool SearchByMove(BasicFigure actualClickFigure, List<Player> listOfPlayers, bool isMoveWhite)
         {
-            CheckWhiteFigures(actualClickFigure);
-
-            CheckBlackFigures(actualClickFigure);
-
-
-
+            if (isMoveWhite)
+            {
+                CheckWhiteFigures(actualClickFigure);
+            }
+            else
+            {
+                CheckBlackFigures(actualClickFigure);
+            }
 
 
 
             return true;
         }
 
+
+        
+
+        private void CheckWhiteFigures(BasicFigure actualClickFigure)
+        {
+            
+            switch (actualClickFigure.Name)
+            {
+                case "FIRST_WHITE_ROOK":
+
+                    break;
+
+                case "FIRST_WHITE_KNIGHT":
+
+                    break;
+
+                case "FIRST_WHITE_BISHOP":
+
+                    break;
+
+                case "WHITE_KING":
+
+                    break;
+
+                case "WHITE_QUEEN":
+
+                    break;
+
+                case "SECOND_WHITE_BISHOP":
+
+                    break;
+
+                case "SECOND_WHITE_KNIGHT":
+
+                    break;
+
+                case "SECOND_WHITE_ROCK":
+
+                    break;
+
+                case "FIRST_WHITE_PAWN":
+                    PawnMovement.MovePawn();
+                    break;
+
+                case "SECOND_WHITE_PAWN":
+
+                    break;
+
+                case "THIRD_WHITE_PAWN":
+
+                    break;
+
+                case "FOURTH_WHITE_PAWN":
+
+                    break;
+
+                case "FIFTH_WHITE_PAWN":
+
+                    break;
+
+                case "SIXTH_WHITE_PAWN":
+
+                    break;
+
+                case "SEVENTH_WHITE_PAWN":
+
+                    break;
+
+                case "EIGHT_WHITE_PAWN":
+
+                    break;
+
+                
+            }
+
+
+
+        }
 
         private void CheckBlackFigures(BasicFigure actualClickFigure)
         {
@@ -148,82 +234,6 @@ namespace ChessGameApp.LogicOfMovements
                     break;
 
             }
-        }
-
-        private void CheckWhiteFigures(BasicFigure actualClickFigure)
-        {
-            
-            switch (actualClickFigure.Name)
-            {
-                case "FIRST_WHITE_ROOK":
-
-                    break;
-
-                case "FIRST_WHITE_KNIGHT":
-
-                    break;
-
-                case "FIRST_WHITE_BISHOP":
-
-                    break;
-
-                case "WHITE_KING":
-
-                    break;
-
-                case "WHITE_QUEEN":
-
-                    break;
-
-                case "SECOND_WHITE_BISHOP":
-
-                    break;
-
-                case "SECOND_WHITE_KNIGHT":
-
-                    break;
-
-                case "SECOND_WHITE_ROCK":
-
-                    break;
-
-                case "FIRST_WHITE_PAWN":
-
-                    break;
-
-                case "SECOND_WHITE_PAWN":
-
-                    break;
-
-                case "THIRD_WHITE_PAWN":
-
-                    break;
-
-                case "FOURTH_WHITE_PAWN":
-
-                    break;
-
-                case "FIFTH_WHITE_PAWN":
-
-                    break;
-
-                case "SIXTH_WHITE_PAWN":
-
-                    break;
-
-                case "SEVENTH_WHITE_PAWN":
-
-                    break;
-
-                case "EIGHT_WHITE_PAWN":
-
-                    break;
-
-                
-            }
-
-
-
         }
     }
 }

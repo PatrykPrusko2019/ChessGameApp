@@ -9,16 +9,11 @@ using System.Threading.Tasks;
 
 namespace ChessGameApp.Players
 {
-    public class FirstWhitePlayer
+    public class FirstWhitePlayer : Player
     {
-        public string Name { get; set; }
-        public List<BasicFigure> ListOfWhiteFigures { get; set; }
-
-        public FirstWhitePlayer(string name ,List<BasicFigure> listOfWhiteFigures)
-        {
-            Name = name;
-            ListOfWhiteFigures = listOfWhiteFigures;
-        }
+        
+        public FirstWhitePlayer(string name, List<BasicFigure> listOfWhiteFigures) : base(name, listOfWhiteFigures) { }
+        
 
     }
 }

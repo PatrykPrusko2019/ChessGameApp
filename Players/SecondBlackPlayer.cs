@@ -7,15 +7,9 @@ using System.Threading.Tasks;
 
 namespace ChessGameApp.Players
 {
-    public class SecondBlackPlayer
+    public class SecondBlackPlayer : Player
     {
-        public string Name { get; set; }
-        public List<BasicFigure> ListOfBlackFigures { get; set; }
-
-        public SecondBlackPlayer(string name, List<BasicFigure> listOfWhiteFigures)
-        {
-            Name = name;
-            ListOfBlackFigures = listOfWhiteFigures;
-        }
+        public SecondBlackPlayer(string name, List<BasicFigure> listOfBlackFigures) : base(name, listOfBlackFigures) { }
+        
     }
 }

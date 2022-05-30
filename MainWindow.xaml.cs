@@ -27,12 +27,12 @@ namespace ChessGameApp
     public partial class MainWindow : Window
     {
         public bool isMoveWhite = true;
+
         public BasicFigure ActualClickFigure;
+
         public SearchMovement SearchMovement;
 
-        public FirstWhitePlayer FirstWhitePlayer;
-
-        public SecondBlackPlayer SecondBlackPlayer;
+        public List<Player> ListOfPlayers;
 
         public MainWindow()
         {
@@ -119,46 +119,49 @@ namespace ChessGameApp
 
 
             //adds all the figures
-            FirstWhitePlayer = new FirstWhitePlayer("FirstWhitePlayer", new List<BasicFigure>() );
-            FirstWhitePlayer.ListOfWhiteFigures.Add(firstWhiteRook);
-            FirstWhitePlayer.ListOfWhiteFigures.Add(firstWhiteKnight);
-            FirstWhitePlayer.ListOfWhiteFigures.Add(firstWhiteBishop);
-            FirstWhitePlayer.ListOfWhiteFigures.Add(whiteQueen);
-            FirstWhitePlayer.ListOfWhiteFigures.Add(whiteKing);
-            FirstWhitePlayer.ListOfWhiteFigures.Add(secondWhiteBishop);
-            FirstWhitePlayer.ListOfWhiteFigures.Add(secondWhiteKnight);
-            FirstWhitePlayer.ListOfWhiteFigures.Add(secondWhiteRook);
+            ListOfPlayers = new List<Player>();
 
-            FirstWhitePlayer.ListOfWhiteFigures.Add(firstWhitePawn);
-            FirstWhitePlayer.ListOfWhiteFigures.Add(secondWhitePawn);
-            FirstWhitePlayer.ListOfWhiteFigures.Add(thirdWhitePawn);
-            FirstWhitePlayer.ListOfWhiteFigures.Add(fourthWhitePawn);
-            FirstWhitePlayer.ListOfWhiteFigures.Add(fifthWhitePawn);
-            FirstWhitePlayer.ListOfWhiteFigures.Add(sixthWhitePawn);
-            FirstWhitePlayer.ListOfWhiteFigures.Add(seventhWhitePawn);
-            FirstWhitePlayer.ListOfWhiteFigures.Add(eighthWhitePawn);
+            FirstWhitePlayer firstWhitePlayer = new FirstWhitePlayer("FirstWhitePlayer", new List<BasicFigure>() );
+            firstWhitePlayer.ListOfFigures.Add(firstWhiteRook);
+            firstWhitePlayer.ListOfFigures.Add(firstWhiteKnight);
+            firstWhitePlayer.ListOfFigures.Add(firstWhiteBishop);
+            firstWhitePlayer.ListOfFigures.Add(whiteQueen);
+            firstWhitePlayer.ListOfFigures.Add(whiteKing);
+            firstWhitePlayer.ListOfFigures.Add(secondWhiteBishop);
+            firstWhitePlayer.ListOfFigures.Add(secondWhiteKnight);
+            firstWhitePlayer.ListOfFigures.Add(secondWhiteRook);
 
+            firstWhitePlayer.ListOfFigures.Add(firstWhitePawn);
+            firstWhitePlayer.ListOfFigures.Add(secondWhitePawn);
+            firstWhitePlayer.ListOfFigures.Add(thirdWhitePawn);
+            firstWhitePlayer.ListOfFigures.Add(fourthWhitePawn);
+            firstWhitePlayer.ListOfFigures.Add(fifthWhitePawn);
+            firstWhitePlayer.ListOfFigures.Add(sixthWhitePawn);
+            firstWhitePlayer.ListOfFigures.Add(seventhWhitePawn);
+            firstWhitePlayer.ListOfFigures.Add(eighthWhitePawn);
 
-            SecondBlackPlayer = new SecondBlackPlayer("SecondBlackPlayer", new List<BasicFigure>());
-            SecondBlackPlayer.ListOfBlackFigures.Add(firstBlackRook);
-            SecondBlackPlayer.ListOfBlackFigures.Add(firstBlackKnight);
-            SecondBlackPlayer.ListOfBlackFigures.Add(firstBlackBishop);
-            SecondBlackPlayer.ListOfBlackFigures.Add(blackQueen);
-            SecondBlackPlayer.ListOfBlackFigures.Add(blackKing);
-            SecondBlackPlayer.ListOfBlackFigures.Add(secondBlackBishop);
-            SecondBlackPlayer.ListOfBlackFigures.Add(secondBlackKnight);
-            SecondBlackPlayer.ListOfBlackFigures.Add(secondBlackRook);
+            ListOfPlayers.Add(firstWhitePlayer);
 
-            SecondBlackPlayer.ListOfBlackFigures.Add(firstBlackPawn);
-            SecondBlackPlayer.ListOfBlackFigures.Add(secondBlackPawn);
-            SecondBlackPlayer.ListOfBlackFigures.Add(thirdBlackPawn);
-            SecondBlackPlayer.ListOfBlackFigures.Add(fourthBlackPawn);
-            SecondBlackPlayer.ListOfBlackFigures.Add(fifthBlackPawn);
-            SecondBlackPlayer.ListOfBlackFigures.Add(sixthBlackPawn);
-            SecondBlackPlayer.ListOfBlackFigures.Add(seventhBlackPawn);
-            SecondBlackPlayer.ListOfBlackFigures.Add(eighthBlackPawn);
+            SecondBlackPlayer secondBlackPlayer  = new SecondBlackPlayer("SecondBlackPlayer", new List<BasicFigure>());
+            secondBlackPlayer.ListOfFigures.Add(firstBlackRook);
+            secondBlackPlayer.ListOfFigures.Add(firstBlackKnight);
+            secondBlackPlayer.ListOfFigures.Add(firstBlackBishop);
+            secondBlackPlayer.ListOfFigures.Add(blackQueen);
+            secondBlackPlayer.ListOfFigures.Add(blackKing);
+            secondBlackPlayer.ListOfFigures.Add(secondBlackBishop);
+            secondBlackPlayer.ListOfFigures.Add(secondBlackKnight);
+            secondBlackPlayer.ListOfFigures.Add(secondBlackRook);
 
-            
+            secondBlackPlayer.ListOfFigures.Add(firstBlackPawn);
+            secondBlackPlayer.ListOfFigures.Add(secondBlackPawn);
+            secondBlackPlayer.ListOfFigures.Add(thirdBlackPawn);
+            secondBlackPlayer.ListOfFigures.Add(fourthBlackPawn);
+            secondBlackPlayer.ListOfFigures.Add(fifthBlackPawn);
+            secondBlackPlayer.ListOfFigures.Add(sixthBlackPawn);
+            secondBlackPlayer.ListOfFigures.Add(seventhBlackPawn);
+            secondBlackPlayer.ListOfFigures.Add(eighthBlackPawn);
+
+            ListOfPlayers.Add(secondBlackPlayer);
 
             SearchMovement = new SearchMovement();
 
@@ -217,12 +220,15 @@ namespace ChessGameApp
             {
                 MessageBox.Show("new position field white -> " + currentFieldByPlayer.Name);
                 ActualClickFigure.NewPosition = currentFieldByPlayer.Name;
-                bool result = SearchMovement.SearchByMove(ActualClickFigure, FirstWhitePlayer, SecondBlackPlayer);
+                bool result = SearchMovement.SearchByMove(ActualClickFigure, ListOfPlayers, isMoveWhite);
+
                 if (result) isMoveWhite = false;
+                else MessageBox.Show("wrong movement of the figure !!!");
             }
             else
             {
-                foreach (var item in FirstWhitePlayer.ListOfWhiteFigures)
+                
+                foreach ( var item in ListOfPlayers.ElementAt(0).ListOfFigures )
                 {
                     if (item.CurrentPosition == currentFieldByPlayer.Name)
                     {
