@@ -12,15 +12,15 @@ namespace ChessGameApp.Figure
         public string Name { get; set; }
         public string CurrentPosition { get; set; }
         public string NewPosition { get; set; }
-        public Button ChangeFigure { get; set; }
-        public int NumberOfClicks { get; set; }
-        public BasicFigure(string name, string currentPosition, string newPosition, Button changeFigure, int numberOfClicks)
+        public Button currentButton { get; set; }
+        public Button NewButton { get; set; }
+        public BasicFigure(string name, string currentPosition, string newPosition, Button changeFigure)
         {
             Name = name;
             CurrentPosition = currentPosition;
             NewPosition = newPosition;
-            ChangeFigure = changeFigure;
-            NumberOfClicks = numberOfClicks;
+            currentButton = changeFigure;
+            
         }
 
         public abstract void CreateFigure();

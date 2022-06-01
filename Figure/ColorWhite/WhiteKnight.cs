@@ -10,13 +10,13 @@ namespace ChessGameApp.Figure.ColorWhite
     class WhiteKnight : BasicFigure
     {
         
-        public WhiteKnight(string name, string currentPosition, string newPosition, Button changeFigure) :  base(name, currentPosition, newPosition, changeFigure, 0) { }
+        public WhiteKnight(string name, string currentPosition, string newPosition, Button changeFigure) :  base(name, currentPosition, newPosition, changeFigure) { }
         
 
         public override void CreateFigure()
         {
-            ChangeFigure.Content = "♘"; //change figure
-            ChangeFigure.FontSize = 40;
+            currentButton.Content = "♘"; //change figure
+            currentButton.FontSize = 40;
         }
     }
 }

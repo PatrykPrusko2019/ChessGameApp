@@ -1,10 +1,12 @@
 ﻿using ChessGameApp.Figure;
+using ChessGameApp.Names;
 using ChessGameApp.Players;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace ChessGameApp.LogicOfMovements
 {
@@ -19,8 +21,20 @@ namespace ChessGameApp.LogicOfMovements
                 switch (1)
                 {
                     case 1:
-                        CheckIfCorrectMovement(actualClickFigure);
-
+                        bool correctMove = CheckIfCorrectMovement(actualClickFigure);
+                        if (correctMove)
+                        {
+                            if (isMoveWhite)
+                            { // white
+                                CheckIfEmptyFieldOrRemoveBlackFigure(actualClickFigure, listOfPlayers, chessBoard);
+                            } 
+                            else
+                            { // black
+                                // CheckIfEmptyFieldOrRemoveWhiteFigure();
+                            }
+                            
+                        }
+                            
                         break;
                 }
             }
@@ -28,32 +42,46 @@ namespace ChessGameApp.LogicOfMovements
             
         }
 
+        private void CheckIfEmptyFieldOrRemoveBlackFigure(BasicFigure actualClickFigure, List<Player> listOfPlayers, Dictionary<string, string> chessBoard)
+        {
+           string fieldChessBoard = chessBoard.GetValueOrDefault(actualClickFigure.NewPosition);
+           if ( fieldChessBoard.Equals(FreeField.FREE_FIELD.ToString()) )
+            {
+
+                BasicFigure currentFigure = listOfPlayers.ElementAt(0).ListOfFigures.FirstOrDefault(x => x == actualClickFigure);
+
+                currentFigure.currentButton.Content = "";
+                currentFigure.CurrentPosition = actualClickFigure.NewPosition;
+                currentFigure.NewPosition = "";
+                currentFigure.currentButton = actualClickFigure.NewButton;
+                currentFigure.CreateFigure();
+
+            } 
+        }
+
         private bool CheckIfCorrectMovement(BasicFigure actualClickFigure)
         {
 
-           bool result = false;     
-           char[] currentPosition = actualClickFigure.CurrentPosition.ToCharArray();
-           
-           if (actualClickFigure.CurrentPosition == "A7" || actualClickFigure.CurrentPosition == "H7")
+            bool result = false;     
+            char[] currentPosition = actualClickFigure.CurrentPosition.ToCharArray();
+            char currentLetterColumn = currentPosition[0];
+            int currentNumberRow = int.Parse(currentPosition[1].ToString());
+
+            char[] newPosition = actualClickFigure.NewPosition.ToCharArray();
+            int newPositionNumberRow = int.Parse(newPosition[1].ToString());
+            char newPositionLetterColumn = newPosition[0];
+
+            if (currentLetterColumn == newPositionLetterColumn || currentLetterColumn - 1 == newPositionLetterColumn || currentLetterColumn + 1 == newPositionLetterColumn)
             {
-                char[] newPosition = actualClickFigure.NewPosition.ToCharArray();
-                int numberRow = int.Parse(newPosition[1].ToString());
-                char letter = newPosition[0];
-                // 3 moves available
-                switch (numberRow)
+                if (currentNumberRow - 1 == newPositionNumberRow ||  (currentNumberRow - 2 == 5 && 5 == newPositionNumberRow) )
                 {
-                    case 1:
-                        if (numberRow - 1 == 6 && letter == 'A') result = true;
-                        break;
-                    case 2:
-                        if (numberRow - 2 == 5 && letter == 'A') result = true;
-                        break;
-                    case 3:
-                        if (numberRow - 1 == 6 && letter + 1 == 'B') result = true;
-                        break;
+                    result = true;
                 }
-                //to do
-            } else if ()
+            }
+
+
+            return result;
+            
         }
     }
 }

@@ -9,12 +9,12 @@ namespace ChessGameApp.Figure.ColorBlack
 {
     class BlackBishop : BasicFigure
     {
-        public BlackBishop(string name, string currentPosition, string newPosition, Button changeFigure) : base(name, currentPosition, newPosition, changeFigure, 0) { }
+        public BlackBishop(string name, string currentPosition, string newPosition, Button changeFigure) : base(name, currentPosition, newPosition, changeFigure) { }
 
         public override void CreateFigure()
         {
-            ChangeFigure.Content = "♝"; //changed figure
-            ChangeFigure.FontSize = 40;
+            currentButton.Content = "♝"; //changed figure
+            currentButton.FontSize = 40;
         }
     }
 }

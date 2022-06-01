@@ -9,12 +9,12 @@ namespace ChessGameApp.Figure.ColorBlack
 {
     class BlackPawn : BasicFigure
     {
-        public BlackPawn(string name, string currentPosition, string newPosition, Button changeFigure) : base(name, currentPosition, newPosition, changeFigure, 0) { }
+        public BlackPawn(string name, string currentPosition, string newPosition, Button changeFigure) : base(name, currentPosition, newPosition, changeFigure) { }
         
         public override void CreateFigure()
         {
-            ChangeFigure.Content = "♟"; //change figure
-            ChangeFigure.FontSize = 40;
+            currentButton.Content = "♟"; //change figure
+            currentButton.FontSize = 40;
         }
     }
 }

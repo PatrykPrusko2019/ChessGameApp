@@ -220,6 +220,7 @@ namespace ChessGameApp
             {
                 MessageBox.Show("new position field white -> " + currentFieldByPlayer.Name);
                 ActualClickFigure.NewPosition = currentFieldByPlayer.Name;
+                ActualClickFigure.NewButton = currentFieldByPlayer;
                 bool result = SearchMovement.SearchByMove(ActualClickFigure, ListOfPlayers, isMoveWhite);
 
                 if (result) isMoveWhite = false;
@@ -235,6 +236,7 @@ namespace ChessGameApp
                         ActualClickFigure = item;
                         MessageBox.Show("current position field white -> " + currentFieldByPlayer.Name + ", name of figure: " + item.Name);
                         // ActualClickFigure.NumberOfClicks = 1;
+                        break;
                     }
                 }
             }
