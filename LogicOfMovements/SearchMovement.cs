@@ -41,10 +41,12 @@ namespace ChessGameApp.LogicOfMovements
             ChessBoard.Add("G2", BlackFigureNames.SEVENTH_BLACK_PAWN.ToString());
             ChessBoard.Add("H2", BlackFigureNames.EIGHT_BLACK_PAWN.ToString());
 
-            char a = 'A';
-            for (int i = 3; i < 7; i++, a++)
+            for (int i = 3; i < 7; i++)
             {
-                ChessBoard.Add(a+""+i, FreeField.FREE_FIELD.ToString());
+                for (char a = 'A'; a < 'I'; a++)
+                {
+                    ChessBoard.Add(a + "" + i, FreeField.FREE_FIELD.ToString());
+                }
             }
 
             ChessBoard.Add("A7", WhiteFigureNames.FIRST_WHITE_PAWN.ToString());
@@ -74,7 +76,7 @@ namespace ChessGameApp.LogicOfMovements
         {
             if (isMoveWhite)
             {
-                CheckWhiteFigures(actualClickFigure);
+                CheckWhiteFigures(actualClickFigure, listOfPlayers, isMoveWhite);
             }
             else
             {
@@ -89,7 +91,7 @@ namespace ChessGameApp.LogicOfMovements
 
         
 
-        private void CheckWhiteFigures(BasicFigure actualClickFigure)
+        private void CheckWhiteFigures(BasicFigure actualClickFigure, List<Player> listOfPlayers, bool isMoveWhite)
         {
             
             switch (actualClickFigure.Name)
@@ -127,11 +129,11 @@ namespace ChessGameApp.LogicOfMovements
                     break;
 
                 case "FIRST_WHITE_PAWN":
-                    PawnMovement.MovePawn();
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "SECOND_WHITE_PAWN":
-
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "THIRD_WHITE_PAWN":
