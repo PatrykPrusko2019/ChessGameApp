@@ -14,15 +14,21 @@ namespace ChessGameApp.Figure
         public string NewPosition { get; set; }
         public Button currentButton { get; set; }
         public Button NewButton { get; set; }
+<<<<<<< HEAD
 
         public int Movement { get; set; } // 0 -> no move, 1 -> ok move 
+=======
+>>>>>>> 924f59b94eb1cc707c679738aeca7f0dd53be9f1
         public BasicFigure(string name, string currentPosition, string newPosition, Button changeFigure)
         {
             Name = name;
             CurrentPosition = currentPosition;
             NewPosition = newPosition;
             currentButton = changeFigure;
+<<<<<<< HEAD
             Movement = 0;
+=======
+>>>>>>> 924f59b94eb1cc707c679738aeca7f0dd53be9f1
             
         }
 

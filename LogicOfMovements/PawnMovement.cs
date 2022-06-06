@@ -28,6 +28,7 @@ namespace ChessGameApp.LogicOfMovements
             }
            else
             {
+<<<<<<< HEAD
                 return false;
             }
             return true;
@@ -70,18 +71,62 @@ namespace ChessGameApp.LogicOfMovements
                 if (currentNumberRow - 1 == newPositionNumberRow || (currentNumberRow - 2 == 5 && 5 == newPositionNumberRow && currentLetterColumn == newPositionLetterColumn) )
                 {
                     result = true;
+=======
+                switch (1)
+                {
+                    case 1:
+                        bool correctMove = CheckIfCorrectMovement(actualClickFigure);
+                        if (correctMove)
+                        {
+                            if (isMoveWhite)
+                            { // white
+                                CheckIfEmptyFieldOrRemoveBlackFigure(actualClickFigure, listOfPlayers, chessBoard);
+                            } 
+                            else
+                            { // black
+                                // CheckIfEmptyFieldOrRemoveWhiteFigure();
+                            }
+                            
+                        }
+                            
+                        break;
+>>>>>>> 924f59b94eb1cc707c679738aeca7f0dd53be9f1
                 }
             }
 
             return result;
         }
 
+<<<<<<< HEAD
         
 
         private bool CheckIfCorrectMovementBlackFigure(BasicFigure actualClickFigure)
         {
 
             bool result = false;
+=======
+        private void CheckIfEmptyFieldOrRemoveBlackFigure(BasicFigure actualClickFigure, List<Player> listOfPlayers, Dictionary<string, string> chessBoard)
+        {
+           string fieldChessBoard = chessBoard.GetValueOrDefault(actualClickFigure.NewPosition);
+           if ( fieldChessBoard.Equals(FreeField.FREE_FIELD.ToString()) )
+            {
+
+                BasicFigure currentFigure = listOfPlayers.ElementAt(0).ListOfFigures.FirstOrDefault(x => x == actualClickFigure);
+
+                currentFigure.currentButton.Content = "";
+                currentFigure.CurrentPosition = actualClickFigure.NewPosition;
+                currentFigure.NewPosition = "";
+                currentFigure.currentButton = actualClickFigure.NewButton;
+                currentFigure.CreateFigure();
+
+            } 
+        }
+
+        private bool CheckIfCorrectMovement(BasicFigure actualClickFigure)
+        {
+
+            bool result = false;     
+>>>>>>> 924f59b94eb1cc707c679738aeca7f0dd53be9f1
             char[] currentPosition = actualClickFigure.CurrentPosition.ToCharArray();
             char currentLetterColumn = currentPosition[0];
             int currentNumberRow = int.Parse(currentPosition[1].ToString());
@@ -92,7 +137,11 @@ namespace ChessGameApp.LogicOfMovements
 
             if (currentLetterColumn == newPositionLetterColumn || currentLetterColumn - 1 == newPositionLetterColumn || currentLetterColumn + 1 == newPositionLetterColumn)
             {
+<<<<<<< HEAD
                 if (currentNumberRow + 1 == newPositionNumberRow || (currentNumberRow + 2 == newPositionNumberRow && newPositionNumberRow == 4 && currentLetterColumn == newPositionLetterColumn)) // example if first start pawn -> B2 -> 4B
+=======
+                if (currentNumberRow - 1 == newPositionNumberRow ||  (currentNumberRow - 2 == 5 && 5 == newPositionNumberRow) )
+>>>>>>> 924f59b94eb1cc707c679738aeca7f0dd53be9f1
                 {
                     result = true;
                 }
@@ -100,7 +149,11 @@ namespace ChessGameApp.LogicOfMovements
 
 
             return result;
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 924f59b94eb1cc707c679738aeca7f0dd53be9f1
         }
     }
 }

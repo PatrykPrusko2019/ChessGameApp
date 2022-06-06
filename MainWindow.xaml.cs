@@ -255,11 +255,32 @@ namespace ChessGameApp
                 MessageBox.Show("new position field white -> " + currentFieldByPlayer.Name);
                 ActualClickFigure.NewPosition = currentFieldByPlayer.Name;
                 ActualClickFigure.NewButton = currentFieldByPlayer;
+<<<<<<< HEAD
                 SearchMovement.SearchByMove(ActualClickFigure, ListOfPlayers, isMoveWhite);
 
                 if (ActualClickFigure.Movement == 1) { isMoveWhite = false; ActualClickFigure.Movement = 0; ActualClickFigure = null; }
                 else { MessageBox.Show("wrong movement !!!"); }
 
+=======
+                bool result = SearchMovement.SearchByMove(ActualClickFigure, ListOfPlayers, isMoveWhite);
+
+                if (result) isMoveWhite = false;
+                else MessageBox.Show("wrong movement of the figure !!!");
+            }
+            else
+            {
+                
+                foreach ( var item in ListOfPlayers.ElementAt(0).ListOfFigures )
+                {
+                    if (item.CurrentPosition == currentFieldByPlayer.Name)
+                    {
+                        ActualClickFigure = item;
+                        MessageBox.Show("current position field white -> " + currentFieldByPlayer.Name + ", name of figure: " + item.Name);
+                        // ActualClickFigure.NumberOfClicks = 1;
+                        break;
+                    }
+                }
+>>>>>>> 924f59b94eb1cc707c679738aeca7f0dd53be9f1
             }
             
         }
