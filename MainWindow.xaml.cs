@@ -258,7 +258,7 @@ namespace ChessGameApp
                 SearchMovement.SearchByMove(ActualClickFigure, ListOfPlayers, isMoveWhite);
 
                 if (ActualClickFigure.Movement == 1) { isMoveWhite = false; ActualClickFigure.Movement = 0; ActualClickFigure = null; }
-                else { MessageBox.Show("wrong movement !!!"); }
+                else { MessageBox.Show("wrong movement. Please choose new white figure !!!"); ActualClickFigure = null; }
 
             }
 
@@ -275,7 +275,7 @@ namespace ChessGameApp
                 SearchMovement.SearchByMove(ActualClickFigure, ListOfPlayers, isMoveWhite);
 
                 if (ActualClickFigure.Movement == 1) { isMoveWhite = true; ActualClickFigure.Movement = 0; ActualClickFigure = null; }
-                else { MessageBox.Show("wrong movement !!!"); }
+                else { MessageBox.Show("wrong movement !!! Please choose new black figure !!!"); ActualClickFigure = null; }
             }
 
         }
