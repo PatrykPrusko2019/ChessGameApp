@@ -72,7 +72,7 @@ namespace ChessGameApp.LogicOfMovements
 
         }
 
-        public bool SearchByMove(BasicFigure actualClickFigure, List<Player> listOfPlayers, bool isMoveWhite)
+        public void SearchByMove(BasicFigure actualClickFigure, List<Player> listOfPlayers, bool isMoveWhite)
         {
             if (isMoveWhite)
             {
@@ -80,12 +80,8 @@ namespace ChessGameApp.LogicOfMovements
             }
             else
             {
-                CheckBlackFigures(actualClickFigure);
+                CheckBlackFigures(actualClickFigure, listOfPlayers, isMoveWhite);
             }
-
-
-
-            return true;
         }
 
 
@@ -137,27 +133,27 @@ namespace ChessGameApp.LogicOfMovements
                     break;
 
                 case "THIRD_WHITE_PAWN":
-
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "FOURTH_WHITE_PAWN":
-
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "FIFTH_WHITE_PAWN":
-
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "SIXTH_WHITE_PAWN":
-
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "SEVENTH_WHITE_PAWN":
-
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "EIGHT_WHITE_PAWN":
-
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 
@@ -167,7 +163,7 @@ namespace ChessGameApp.LogicOfMovements
 
         }
 
-        private void CheckBlackFigures(BasicFigure actualClickFigure)
+        private void CheckBlackFigures(BasicFigure actualClickFigure, List<Player> listOfPlayers, bool isMoveWhite)
         {
             switch (actualClickFigure.Name)
             {
@@ -204,35 +200,35 @@ namespace ChessGameApp.LogicOfMovements
                     break;
 
                 case "FIRST_BLACK_PAWN":
-
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "SECOND_BLACK_PAWN":
-
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "THIRD_BLACK_PAWN":
-
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "FOURTH_BLACK_PAWN":
-
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "FIFTH_BLACK_PAWN":
-
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "SIXTH_BLACK_PAWN":
-
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "SEVENTH_BLACK_PAWN":
-
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "EIGHT_BLACK_PAWN":
-
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
             }
