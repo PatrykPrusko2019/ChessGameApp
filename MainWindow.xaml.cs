@@ -45,7 +45,7 @@ namespace ChessGameApp
         public void NewGame()
         {
             //init black figures -> second player
-            
+
 
             BlackRook firstBlackRook = new BlackRook(BlackFigureNames.FIRST_BLACK_ROOK.ToString(), "A1", "", A1);
             firstBlackRook.CreateFigure();
@@ -121,7 +121,7 @@ namespace ChessGameApp
             //adds all the figures
             ListOfPlayers = new List<Player>();
 
-            FirstWhitePlayer firstWhitePlayer = new FirstWhitePlayer("FirstWhitePlayer", new List<BasicFigure>() );
+            FirstWhitePlayer firstWhitePlayer = new FirstWhitePlayer("FirstWhitePlayer", new List<BasicFigure>());
             firstWhitePlayer.ListOfFigures.Add(firstWhiteRook);
             firstWhitePlayer.ListOfFigures.Add(firstWhiteKnight);
             firstWhitePlayer.ListOfFigures.Add(firstWhiteBishop);
@@ -142,7 +142,7 @@ namespace ChessGameApp
 
             ListOfPlayers.Add(firstWhitePlayer);
 
-            SecondBlackPlayer secondBlackPlayer  = new SecondBlackPlayer("SecondBlackPlayer", new List<BasicFigure>());
+            SecondBlackPlayer secondBlackPlayer = new SecondBlackPlayer("SecondBlackPlayer", new List<BasicFigure>());
             secondBlackPlayer.ListOfFigures.Add(firstBlackRook);
             secondBlackPlayer.ListOfFigures.Add(firstBlackKnight);
             secondBlackPlayer.ListOfFigures.Add(firstBlackBishop);
@@ -172,10 +172,10 @@ namespace ChessGameApp
         {
             Button currentFieldByPlayer = (Button)sender;
 
-            if ( ActualClickFigure == null )
+            if (ActualClickFigure == null)
             {
                 if (!CheckIfCorrectPlayerMovement(currentFieldByPlayer)) { MessageBox.Show("Please choose good color of figure !!!"); return; }
-                      
+
             }
 
             if (isMoveWhite)
@@ -189,23 +189,23 @@ namespace ChessGameApp
 
 
 
-            
 
-          
+
+
             // tests change position figure 
 
             //BasicFigure firstBlackPawn = ListOfFigures.ElementAt(8);
-            
-                
+
+
 
             //if (currentFieldByPlayer.Name == firstBlackPawn.CurrentPosition) // A2
             //{
             //    firstBlackPawn.NumberOfClicks++;
             //    MessageBox.Show("Good choice !!!");
-                
+
             //    MessageBox.Show("count = " + firstBlackPawn.NumberOfClicks);
 
-                
+
             //}
 
             //if (firstBlackPawn.NumberOfClicks == 2)
@@ -255,34 +255,13 @@ namespace ChessGameApp
                 MessageBox.Show("new position field white -> " + currentFieldByPlayer.Name);
                 ActualClickFigure.NewPosition = currentFieldByPlayer.Name;
                 ActualClickFigure.NewButton = currentFieldByPlayer;
-<<<<<<< HEAD
                 SearchMovement.SearchByMove(ActualClickFigure, ListOfPlayers, isMoveWhite);
 
                 if (ActualClickFigure.Movement == 1) { isMoveWhite = false; ActualClickFigure.Movement = 0; ActualClickFigure = null; }
                 else { MessageBox.Show("wrong movement !!!"); }
 
-=======
-                bool result = SearchMovement.SearchByMove(ActualClickFigure, ListOfPlayers, isMoveWhite);
+            }
 
-                if (result) isMoveWhite = false;
-                else MessageBox.Show("wrong movement of the figure !!!");
-            }
-            else
-            {
-                
-                foreach ( var item in ListOfPlayers.ElementAt(0).ListOfFigures )
-                {
-                    if (item.CurrentPosition == currentFieldByPlayer.Name)
-                    {
-                        ActualClickFigure = item;
-                        MessageBox.Show("current position field white -> " + currentFieldByPlayer.Name + ", name of figure: " + item.Name);
-                        // ActualClickFigure.NumberOfClicks = 1;
-                        break;
-                    }
-                }
->>>>>>> 924f59b94eb1cc707c679738aeca7f0dd53be9f1
-            }
-            
         }
 
 
@@ -298,7 +277,7 @@ namespace ChessGameApp
                 if (ActualClickFigure.Movement == 1) { isMoveWhite = true; ActualClickFigure.Movement = 0; ActualClickFigure = null; }
                 else { MessageBox.Show("wrong movement !!!"); }
             }
-            
+
         }
     }
 }
