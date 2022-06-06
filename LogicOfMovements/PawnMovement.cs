@@ -32,10 +32,10 @@ namespace ChessGameApp.LogicOfMovements
             }
             return true;
                             
+        }
              
                        
             
-        }
 
         
         private void ChangePositionOfFigure(BasicFigure actualClickFigure, Player listOfPlayers, Dictionary<string, string> chessBoard)
@@ -67,7 +67,7 @@ namespace ChessGameApp.LogicOfMovements
 
             if (currentLetterColumn == newPositionLetterColumn || currentLetterColumn - 1 == newPositionLetterColumn || currentLetterColumn + 1 == newPositionLetterColumn)
             {
-                if (currentNumberRow - 1 == newPositionNumberRow ||  (currentNumberRow - 2 == 5 && 5 == newPositionNumberRow && currentLetterColumn == newPositionLetterColumn) )
+                if (currentNumberRow - 1 == newPositionNumberRow || (currentNumberRow - 2 == 5 && 5 == newPositionNumberRow && currentLetterColumn == newPositionLetterColumn) )
                 {
                     result = true;
                 }
