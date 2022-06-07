@@ -1,6 +1,5 @@
 # ChessGameApp
-<<<<<<< HEAD
-=======
+
 Using C# + WPF in visual studio 2019.
 Game description:
 Possibility to play between two players:
@@ -10,4 +9,4 @@ Possibility to play between two players:
 
 
 1. first subbranch "action_of_pawn_figure" -> pawn figure movement programming.
->>>>>>> 0c1124a3fe62a96efcda029944a9eb5112327f5a
+2. second subbranch "action_of_tower_figure" -> tower/rook figure movement programming.
