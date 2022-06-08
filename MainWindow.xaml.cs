@@ -45,8 +45,6 @@ namespace ChessGameApp
         public void NewGame()
         {
             //init black figures -> second player
-
-
             BlackRook firstBlackRook = new BlackRook(BlackFigureNames.FIRST_BLACK_ROOK.ToString(), "A1", "", A1);
             firstBlackRook.CreateFigure();
             BlackKnight firstBlackKnight = new BlackKnight(BlackFigureNames.FIRST_BLACK_KNIGHT.ToString(), "B1", "", B1);

@@ -1,4 +1,5 @@
 ﻿using ChessGameApp.Figure;
+using ChessGameApp.LogicOfMovements.Movements.BasicMovement;
 using ChessGameApp.Names;
 using ChessGameApp.Players;
 using System;
@@ -10,10 +11,10 @@ using System.Windows.Controls;
 
 namespace ChessGameApp.LogicOfMovements
 {
-    public class PawnMovement
+    public class PawnMovement : Movement
     {
 
-        public bool MovePawn(BasicFigure actualClickFigure, List<Player> listOfPlayers, Dictionary<string, string> chessBoard, bool isMoveWhite)
+        public override bool MoveFigure(BasicFigure actualClickFigure, List<Player> listOfPlayers, Dictionary<string, string> chessBoard, bool isMoveWhite)
         {
             // check if the field is empty
             string figure = chessBoard.FirstOrDefault(x => actualClickFigure.NewPosition == x.Key).Value;
