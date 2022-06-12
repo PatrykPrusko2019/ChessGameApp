@@ -80,7 +80,7 @@ namespace ChessGameApp.LogicOfMovements
             currentFigure.Movement = 1;
         }
 
-        private bool CheckIfCorrectMovementWhiteFigure(BasicFigure actualClickFigure, bool freeField)
+        public override bool CheckIfCorrectMovementWhiteFigure(BasicFigure actualClickFigure, bool freeField)
         {
             bool result = false;
             char[] currentPosition = actualClickFigure.CurrentPosition.ToCharArray();
