@@ -1,6 +1,4 @@
 ﻿using ChessGameApp.Figure;
-using ChessGameApp.LogicOfMovements.Movements;
-using ChessGameApp.LogicOfMovements.Movements.BasicMovement;
 using ChessGameApp.Names;
 using ChessGameApp.Players;
 using System;
@@ -17,12 +15,10 @@ namespace ChessGameApp.LogicOfMovements
 
         public FirstWhitePlayer FirstWhitePlayer { get; set; }
         public SecondBlackPlayer SecondBlackPlayer { get; set; }
-        public List<Movement> Movement { get; set; }
+        public PawnMovement PawnMovement { get; set; }
         public SearchMovement()
         {
-            Movement = new List<Movement>();
-            Movement.Add(new PawnMovement()); // 0 -> pawn movement
-            Movement.Add(new RookMovement()); // 1 -> rook movement
+            PawnMovement = new PawnMovement();
 
             ChessBoard = new Dictionary<string, string>();
 
@@ -129,35 +125,35 @@ namespace ChessGameApp.LogicOfMovements
                     break;
 
                 case "FIRST_WHITE_PAWN":
-                    Movement.ElementAt(0).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "SECOND_WHITE_PAWN":
-                    Movement.ElementAt(0).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "THIRD_WHITE_PAWN":
-                    Movement.ElementAt(0).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "FOURTH_WHITE_PAWN":
-                    Movement.ElementAt(0).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "FIFTH_WHITE_PAWN":
-                    Movement.ElementAt(0).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "SIXTH_WHITE_PAWN":
-                    Movement.ElementAt(0).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "SEVENTH_WHITE_PAWN":
-                    Movement.ElementAt(0).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "EIGHT_WHITE_PAWN":
-                    Movement.ElementAt(0).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 
@@ -204,35 +200,35 @@ namespace ChessGameApp.LogicOfMovements
                     break;
 
                 case "FIRST_BLACK_PAWN":
-                    Movement.ElementAt(0).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "SECOND_BLACK_PAWN":
-                    Movement.ElementAt(0).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "THIRD_BLACK_PAWN":
-                    Movement.ElementAt(0).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "FOURTH_BLACK_PAWN":
-                    Movement.ElementAt(0).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "FIFTH_BLACK_PAWN":
-                    Movement.ElementAt(0).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "SIXTH_BLACK_PAWN":
-                    Movement.ElementAt(0).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "SEVENTH_BLACK_PAWN":
-                    Movement.ElementAt(0).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "EIGHT_BLACK_PAWN":
-                    Movement.ElementAt(0).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
+                    PawnMovement.MovePawn(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
             }
