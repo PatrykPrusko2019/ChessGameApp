@@ -97,7 +97,7 @@ namespace ChessGameApp.LogicOfMovements
             switch (actualClickFigure.Name)
             {
                 case "FIRST_WHITE_ROOK":
-
+                    Movement.ElementAt(1).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "FIRST_WHITE_KNIGHT":
@@ -125,7 +125,7 @@ namespace ChessGameApp.LogicOfMovements
                     break;
 
                 case "SECOND_WHITE_ROCK":
-
+                    Movement.ElementAt(1).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "FIRST_WHITE_PAWN":
@@ -172,7 +172,7 @@ namespace ChessGameApp.LogicOfMovements
             switch (actualClickFigure.Name)
             {
                 case "FIRST_BLACK_ROOK":
-
+                    Movement.ElementAt(1).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "FIRST_BLACK_KNIGHT":
@@ -200,7 +200,7 @@ namespace ChessGameApp.LogicOfMovements
                     break;
 
                 case "SECOND_BLACK_ROCK":
-
+                    Movement.ElementAt(1).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "FIRST_BLACK_PAWN":
