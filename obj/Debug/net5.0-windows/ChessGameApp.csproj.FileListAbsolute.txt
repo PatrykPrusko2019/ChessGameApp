@@ -64,10 +64,6 @@ C:\Users\patryk.prusko\MySheets\Projects\ChessGameApp\ChessGameApp\obj\Debug\net
 C:\Users\patryk.prusko\MySheets\Projects\ChessGameApp\ChessGameApp\obj\Debug\net5.0-windows\ref\ChessGameApp.dll
 C:\Users\patryk.prusko\MySheets\Projects\ChessGameApp\ChessGameApp\obj\Debug\net5.0-windows\ChessGameApp.pdb
 C:\Users\patryk.prusko\MySheets\Projects\ChessGameApp\ChessGameApp\obj\Debug\net5.0-windows\ChessGameApp.genruntimeconfig.cache
-D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\MainWindow.g.cs
-D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\App.g.cs
-D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\ChessGameApp_MarkupCompile.cache
-D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\ChessGameApp_MarkupCompile.lref
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\bin\Debug\net5.0-windows\ChessGameApp.exe
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\bin\Debug\net5.0-windows\ChessGameApp.deps.json
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\bin\Debug\net5.0-windows\ChessGameApp.runtimeconfig.json
@@ -75,6 +71,10 @@ D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\bin\Debug\ne
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\bin\Debug\net5.0-windows\ChessGameApp.dll
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\bin\Debug\net5.0-windows\ref\ChessGameApp.dll
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\bin\Debug\net5.0-windows\ChessGameApp.pdb
+D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\MainWindow.g.cs
+D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\App.g.cs
+D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\ChessGameApp_MarkupCompile.cache
+D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\ChessGameApp_MarkupCompile.lref
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\MainWindow.baml
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\ChessGameApp.g.resources
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\ChessGameApp.GeneratedMSBuildEditorConfig.editorconfig
@@ -85,4 +85,3 @@ D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\ne
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\ref\ChessGameApp.dll
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\ChessGameApp.pdb
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\ChessGameApp.genruntimeconfig.cache
-D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\ChessGameApp.csproj.AssemblyReference.cache
