@@ -55,5 +55,6 @@ namespace ChessGameApp.LogicOfMovements.Movements.BasicMovement
             whitePlayer.ListOfFigures.Remove(removeWhiteFigure); // delete black figure from list
             return true;
         }
+
     }
 }

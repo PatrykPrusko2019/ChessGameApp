@@ -43,43 +43,6 @@ namespace ChessGameApp.LogicOfMovements
 
         }
 
-        //private bool CheckIsThereAndRemoveWhiteFigure(BasicFigure actualClickFigure, Player whitePlayer, Dictionary<string, string> chessBoard)
-        //{
-        //    BasicFigure removeWhiteFigure = whitePlayer.ListOfFigures.FirstOrDefault(x => x.CurrentPosition == actualClickFigure.NewPosition);
-        //    if (removeWhiteFigure == null) return false;
-        //    //delete the black figure
-
-        //    chessBoard[removeWhiteFigure.CurrentPosition] = FreeField.FREE_FIELD.ToString(); // delete black figure from chessboard
-        //    whitePlayer.ListOfFigures.Remove(removeWhiteFigure); // delete black figure from list
-        //    return true;
-        //}
-
-        //private bool CheckIsThereAndRemoveBlackFigure(BasicFigure actualClickFigure, Player blackPlayer, Dictionary<string, string> chessBoard)
-        //{
-        //    BasicFigure removeBlackFigure = blackPlayer.ListOfFigures.FirstOrDefault(x => x.CurrentPosition == actualClickFigure.NewPosition);
-        //    if (removeBlackFigure == null) return false;
-        //    //delete the black figure
-
-        //    chessBoard[removeBlackFigure.CurrentPosition] = FreeField.FREE_FIELD.ToString(); // delete black figure from chessboard
-        //    blackPlayer.ListOfFigures.Remove(removeBlackFigure); // delete black figure from list
-        //    return true;
-        //}
-
-        //private void ChangePositionOfFigure(BasicFigure actualClickFigure, Player listOfPlayers, Dictionary<string, string> chessBoard)
-        //{
-        //    BasicFigure currentFigure = listOfPlayers.ListOfFigures.FirstOrDefault(x => x == actualClickFigure);
-
-        //    chessBoard[actualClickFigure.CurrentPosition] = FreeField.FREE_FIELD.ToString(); // set actuall chessBoard 
-        //    chessBoard[actualClickFigure.NewPosition] = actualClickFigure.Name;
-
-        //    currentFigure.currentButton.Content = "";
-        //    currentFigure.CurrentPosition = actualClickFigure.NewPosition;
-        //    currentFigure.NewPosition = "";
-        //    currentFigure.currentButton = actualClickFigure.NewButton;
-        //    currentFigure.CreateFigure();
-        //    currentFigure.Movement = 1;
-        //}
-
         public override bool CheckIfCorrectMovementWhiteFigure(BasicFigure actualClickFigure, bool freeField)
         {
             bool result = false;

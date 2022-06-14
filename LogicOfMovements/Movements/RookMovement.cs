@@ -153,47 +153,5 @@ namespace ChessGameApp.LogicOfMovements.Movements
         {
             throw new NotImplementedException();
         }
-
-
-
-        //private bool CheckIfCorrectMovementBlackFigure(BasicFigure actualClickFigure, bool freeField)
-        //{
-
-        //    bool result = false;
-        //    char[] currentPosition = actualClickFigure.CurrentPosition.ToCharArray();
-        //    char currentLetterColumn = currentPosition[0];
-        //    int currentNumberRow = int.Parse(currentPosition[1].ToString());
-
-        //    char[] newPosition = actualClickFigure.NewPosition.ToCharArray();
-        //    int newPositionNumberRow = int.Parse(newPosition[1].ToString());
-        //    char newPositionLetterColumn = newPosition[0];
-
-        //    if (freeField)
-        //    {
-        //        if (currentLetterColumn == newPositionLetterColumn)
-        //        {
-        //            if (currentNumberRow + 1 == newPositionNumberRow || (currentNumberRow + 2 == newPositionNumberRow && newPositionNumberRow == 4)) // example if first start pawn -> B2 -> 4B
-        //            {
-        //                result = true;
-        //            }
-        //        }
-        //    }
-        //    else
-        //    { // no free field
-        //        if (currentLetterColumn - 1 == newPositionLetterColumn || currentLetterColumn + 1 == newPositionLetterColumn)
-        //        {
-        //            if (currentNumberRow + 1 == newPositionNumberRow) // example if first start pawn -> B2 -> A3 or C3
-        //            {
-        //                result = true;
-        //            }
-        //        }
-        //    }
-
-
-        //    return result;
-
-        //}
-
-
     }
 }
