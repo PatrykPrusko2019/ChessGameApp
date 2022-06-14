@@ -78,9 +78,13 @@ namespace ChessGameApp.LogicOfMovements.Movements
                 for (int i = currentNumberRow + 1; i < newPositionNumberRow + 1; i++) // 2 < 5
                 {
                     string tempNumberRow = newPositionLetterColumn + "" + i;
-
-                    if (tempNumberRow == newPosition && !freeField && !CheckIfFieldIsEmpty(tempNumberRow)) return true; // if remove figure white or black
-                    if (!CheckIfFieldIsEmpty(tempNumberRow)) return false;
+                    
+                    if (!CheckIfFieldIsEmpty(tempNumberRow))
+                    {
+                        if (tempNumberRow == newPosition && !freeField) return true;  // if remove figure white or black
+                        else return false;
+                    }
+                        
                 }
                 result = true;
             }
@@ -90,8 +94,12 @@ namespace ChessGameApp.LogicOfMovements.Movements
                 {
                     string tempNumberRow = newPositionLetterColumn + "" + i;
 
-                    if (tempNumberRow == newPosition && !freeField && !CheckIfFieldIsEmpty(tempNumberRow)) return true; // if remove figure white or black
-                    if (!CheckIfFieldIsEmpty(tempNumberRow)) return false;
+                    if (!CheckIfFieldIsEmpty(tempNumberRow))
+                    {
+                        if (tempNumberRow == newPosition && !freeField) return true;  // if remove figure white or black
+                        else return false;
+                    }
+
                 }
                 result = true;
             }
@@ -101,8 +109,11 @@ namespace ChessGameApp.LogicOfMovements.Movements
                 {
                     string tempLetterColumn = c + "" + newPositionNumberRow;
 
-                    if (tempLetterColumn == newPosition && !freeField && !CheckIfFieldIsEmpty(tempLetterColumn)) return true; // if remove figure white or black
-                    if (!CheckIfFieldIsEmpty(tempLetterColumn)) return false;
+                    if (!CheckIfFieldIsEmpty(tempLetterColumn))
+                    {
+                        if (tempLetterColumn == newPosition && !freeField) return true;  // if remove figure white or black
+                        else return false;
+                    }
                 }
                 result = true;
 
@@ -113,8 +124,11 @@ namespace ChessGameApp.LogicOfMovements.Movements
                 {
                     string tempLetterColumn = c + "" + newPositionNumberRow;
 
-                    if (tempLetterColumn == newPosition && !freeField && !CheckIfFieldIsEmpty(tempLetterColumn)) return true; // if remove figure white or black
-                    if (!CheckIfFieldIsEmpty(tempLetterColumn)) return false;
+                    if (!CheckIfFieldIsEmpty(tempLetterColumn))
+                    {
+                        if (tempLetterColumn == newPosition && !freeField) return true;  // if remove figure white or black
+                        else return false;
+                    }
                 }
                 result = true;
             }
