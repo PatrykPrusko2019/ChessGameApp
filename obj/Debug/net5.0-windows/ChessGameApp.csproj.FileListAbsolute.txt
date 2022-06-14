@@ -71,6 +71,7 @@ D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\bin\Debug\ne
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\bin\Debug\net5.0-windows\ChessGameApp.dll
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\bin\Debug\net5.0-windows\ref\ChessGameApp.dll
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\bin\Debug\net5.0-windows\ChessGameApp.pdb
+D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\ChessGameApp.csproj.AssemblyReference.cache
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\MainWindow.g.cs
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\App.g.cs
 D:\MySheets\Projects\Actuall_Project_C_sharp_Java\C_Sharp\ChessGame\obj\Debug\net5.0-windows\ChessGameApp_MarkupCompile.cache
