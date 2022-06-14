@@ -1,5 +1,6 @@
 ﻿using ChessGameApp.Figure;
 using ChessGameApp.LogicOfMovements.Movements.BasicMovement;
+using ChessGameApp.Names;
 using ChessGameApp.Players;
 using System;
 using System.Collections.Generic;
@@ -18,19 +19,19 @@ namespace ChessGameApp.LogicOfMovements.Movements
             // check if the field is empty
             string figure = chessBoard.FirstOrDefault(x => actualClickFigure.NewPosition == x.Key).Value;
 
-            if (figure == "FREE_FIELD" && isMoveWhite && CheckIfCorrectMovementWhiteFigure(actualClickFigure, true))
+            if (figure == "FREE_FIELD" && isMoveWhite && CheckIfCorrectMovementWhiteOrBlackFigure(actualClickFigure, true))
             { //white
                 ChangePositionOfFigure(actualClickFigure, listOfPlayers[0], chessBoard);
             }
-            else if (figure == "FREE_FIELD" && !isMoveWhite && CheckIfCorrectMovementBlackFigure(actualClickFigure, true))
+            else if (figure == "FREE_FIELD" && !isMoveWhite && CheckIfCorrectMovementWhiteOrBlackFigure(actualClickFigure, true))
             { //Black
                 ChangePositionOfFigure(actualClickFigure, listOfPlayers[1], chessBoard);
             }
-            else if (isMoveWhite && CheckIfCorrectMovementWhiteFigure(actualClickFigure, false) && CheckIsThereAndRemoveBlackFigure(actualClickFigure, listOfPlayers[1], chessBoard))
+            else if (isMoveWhite && CheckIfCorrectMovementWhiteOrBlackFigure(actualClickFigure, false) && CheckIsThereAndRemoveBlackFigure(actualClickFigure, listOfPlayers[1], chessBoard))
             {   // white and remove black figure
                 ChangePositionOfFigure(actualClickFigure, listOfPlayers[0], chessBoard);
             }
-            else if (!isMoveWhite && CheckIfCorrectMovementBlackFigure(actualClickFigure, false) && CheckIsThereAndRemoveWhiteFigure(actualClickFigure, listOfPlayers[0], chessBoard))
+            else if (!isMoveWhite && CheckIfCorrectMovementWhiteOrBlackFigure(actualClickFigure, false) && CheckIsThereAndRemoveWhiteFigure(actualClickFigure, listOfPlayers[0], chessBoard))
             {   // black and remove white figure
                 ChangePositionOfFigure(actualClickFigure, listOfPlayers[1], chessBoard);
             }
@@ -42,7 +43,7 @@ namespace ChessGameApp.LogicOfMovements.Movements
         }
 
 
-        public override bool CheckIfCorrectMovementWhiteFigure(BasicFigure actualClickFigure, bool freeField)
+        public override bool CheckIfCorrectMovementWhiteOrBlackFigure(BasicFigure actualClickFigure, bool freeField)
         {
             bool result = false;
             char[] currentPosition = actualClickFigure.CurrentPosition.ToCharArray();
@@ -54,62 +55,103 @@ namespace ChessGameApp.LogicOfMovements.Movements
             char newPositionLetterColumn = newPosition[0];
 
             if (freeField)
-            { // letters
+            { // letters or numbers
+                result = CheckIfLetterOrNumber(currentLetterColumn, currentNumberRow, newPositionNumberRow, newPositionLetterColumn, freeField);
 
-                if (currentLetterColumn == newPositionLetterColumn && currentNumberRow + newPositionNumberRow > currentNumberRow) // A == A && 1 + 4 > 1 -> down
-                {
-                    for (int i = currentNumberRow+1; i < newPositionNumberRow+1; i++) // 2 < 5
-                    {
-                        string tempNumberRow = newPositionLetterColumn +""+ i;
-                        // check if the field is empty
-                        string figure = ChessBoard.FirstOrDefault(x => tempNumberRow == x.Key).Value;
-                        if (figure != "FREE_FIELD") return false;
-                    }
-                    result = true;
-                }
-                else if (currentLetterColumn == newPositionLetterColumn && currentNumberRow - newPositionNumberRow < currentNumberRow) // A == A && 4 - 1 < 4 -> up
-                {
-                    for (int i = currentNumberRow - 1; i > newPositionNumberRow-1; i--) // 3 > 0
-                    {
-                        string tempNumberRow = newPositionLetterColumn + "" + i;
-                        // check if the field is empty
-                        string figure = ChessBoard.FirstOrDefault(x => tempNumberRow == x.Key).Value;
-                        if (figure != "FREE_FIELD") return false;
-                    }
-                    result = true;
-                }
             }
-            else // numbers
-            { // no free field and possibility remove black figure
-                if (currentNumberRow == newPositionNumberRow && currentLetterColumn + newPositionLetterColumn > currentNumberRow) // 4 == 4 && A + H > A -> right
-                {
-                    for (int c = currentLetterColumn + 1; c < newPositionLetterColumn + 1; c++) // B < I
-                    {
-                        string tempLetterColumn = c + "" + newPositionNumberRow;
-                        // check if the field is empty
-                        string figure = ChessBoard.FirstOrDefault(x => tempLetterColumn == x.Key).Value;
-                        if (figure != "FREE_FIELD") return false;
-                    }
-                    result = true;
-
-                }
-                else if (currentNumberRow == newPositionNumberRow && currentLetterColumn - newPositionLetterColumn < currentNumberRow) // 4 == 4 && H - A < H -> left
-                {
-                     for (int c = currentLetterColumn-1; c > newPositionLetterColumn-1; c--) // G > A-1
-                     {
-                         string tempLetterColumn = c + "" + newPositionNumberRow;
-                         // check if the field is empty
-                         string figure = ChessBoard.FirstOrDefault(x => tempLetterColumn == x.Key).Value;
-                         if (figure != "FREE_FIELD") return false;
-                     }
-                     result = true;
-                }
+            else // letters or numbers
+            { // no free field and possibility remove black / white figure
+                result = CheckIfLetterOrNumber(currentLetterColumn, currentNumberRow, newPositionNumberRow, newPositionLetterColumn, freeField);
 
             }
 
             return result;
         }
 
+        private bool CheckIfLetterOrNumber(char currentLetterColumn, int currentNumberRow, int newPositionNumberRow, char newPositionLetterColumn, bool freeField)
+        {
+            bool result = false;
+            string newPosition = newPositionLetterColumn + "" + newPositionNumberRow;
 
+            if (currentLetterColumn == newPositionLetterColumn && currentNumberRow + newPositionNumberRow > currentNumberRow) // A == A && 1 + 4 > 1 -> down
+            {
+                for (int i = currentNumberRow + 1; i < newPositionNumberRow + 1; i++) // 2 < 5
+                {
+                    string tempNumberRow = newPositionLetterColumn + "" + i;
+
+                    if (!CheckIfFieldIsEmpty(tempNumberRow))
+                    {
+                        if (tempNumberRow == newPosition && !freeField) return true;  // if remove figure white or black
+                        else return false;
+                    }
+
+                }
+                result = true;
+            }
+            else if (currentLetterColumn == newPositionLetterColumn && currentNumberRow - newPositionNumberRow < currentNumberRow) // A == A && 4 - 1 < 4 -> up
+            {
+                for (int i = currentNumberRow - 1; i > newPositionNumberRow - 1; i--) // 3 > 0
+                {
+                    string tempNumberRow = newPositionLetterColumn + "" + i;
+
+                    if (!CheckIfFieldIsEmpty(tempNumberRow))
+                    {
+                        if (tempNumberRow == newPosition && !freeField) return true;  // if remove figure white or black
+                        else return false;
+                    }
+
+                }
+                result = true;
+            }
+            else if (currentNumberRow == newPositionNumberRow && currentLetterColumn + newPositionLetterColumn > currentNumberRow) // 4 == 4 && A + H > A -> right
+            {
+                for (char c = (char)(currentLetterColumn + 1); c < (char)(newPositionLetterColumn + 1); c++) // B < I
+                {
+                    string tempLetterColumn = c + "" + newPositionNumberRow;
+
+                    if (!CheckIfFieldIsEmpty(tempLetterColumn))
+                    {
+                        if (tempLetterColumn == newPosition && !freeField) return true;  // if remove figure white or black
+                        else return false;
+                    }
+                }
+                result = true;
+
+            }
+            else if (currentNumberRow == newPositionNumberRow && currentLetterColumn - newPositionLetterColumn < currentNumberRow) // 4 == 4 && H - A < H -> left
+            {
+                for (char c = (char)(currentLetterColumn - 1); c > (char)(newPositionLetterColumn - 1); c--) // G > A-1
+                {
+                    string tempLetterColumn = c + "" + newPositionNumberRow;
+
+                    if (!CheckIfFieldIsEmpty(tempLetterColumn))
+                    {
+                        if (tempLetterColumn == newPosition && !freeField) return true;  // if remove figure white or black
+                        else return false;
+                    }
+                }
+                result = true;
+            }
+
+            return result;
+        }
+
+        public bool CheckIfFieldIsEmpty(string tempLetterColumnOrNumberRow)
+        {
+            // check if the field is empty
+            string figure = ChessBoard.FirstOrDefault(x => tempLetterColumnOrNumberRow == x.Key).Value;
+            if (figure != "FREE_FIELD") return false;
+            else return true;
+        }
+
+        public override bool CheckIfCorrectMovementWhiteFigure(BasicFigure actualClickFigure, bool freeField)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool CheckIfCorrectMovementBlackFigure(BasicFigure actualClickFigure, bool freeField)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
