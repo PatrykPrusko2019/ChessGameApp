@@ -66,7 +66,7 @@ namespace ChessGameApp.LogicOfMovements.Movements
             }
 
             return result;
-        }
+        } 
 
         private bool CheckIfLetterOrNumber(char currentLetterColumn, int currentNumberRow, int newPositionNumberRow, char newPositionLetterColumn, bool freeField)
         {
