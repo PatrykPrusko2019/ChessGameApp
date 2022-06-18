@@ -124,5 +124,6 @@ namespace ChessGameApp.LogicOfMovements
         {
             throw new NotImplementedException();
         }
+
     }
 }
