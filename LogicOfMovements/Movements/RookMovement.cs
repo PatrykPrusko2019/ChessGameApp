@@ -81,7 +81,7 @@ namespace ChessGameApp.LogicOfMovements.Movements
 
                     if (!CheckIfFieldIsEmpty(tempNumberRow))
                     {
-                        if (tempNumberRow == newPosition && !freeField) return true;  // if remove figure white or black
+                        if (tempNumberRow == newPosition && !freeField) return true;  // remove figure white or black
                         else return false;
                     }
 
@@ -96,7 +96,7 @@ namespace ChessGameApp.LogicOfMovements.Movements
 
                     if (!CheckIfFieldIsEmpty(tempNumberRow))
                     {
-                        if (tempNumberRow == newPosition && !freeField) return true;  // if remove figure white or black
+                        if (tempNumberRow == newPosition && !freeField) return true;  // remove figure white or black
                         else return false;
                     }
 
@@ -111,7 +111,7 @@ namespace ChessGameApp.LogicOfMovements.Movements
 
                     if (!CheckIfFieldIsEmpty(tempLetterColumn))
                     {
-                        if (tempLetterColumn == newPosition && !freeField) return true;  // if remove figure white or black
+                        if (tempLetterColumn == newPosition && !freeField) return true;  // remove figure white or black
                         else return false;
                     }
                 }
@@ -126,7 +126,7 @@ namespace ChessGameApp.LogicOfMovements.Movements
 
                     if (!CheckIfFieldIsEmpty(tempLetterColumn))
                     {
-                        if (tempLetterColumn == newPosition && !freeField) return true;  // if remove figure white or black
+                        if (tempLetterColumn == newPosition && !freeField) return true;  // remove figure white or black
                         else return false;
                     }
                 }
