@@ -49,10 +49,10 @@ namespace ChessGameApp.LogicOfMovements.Movements.BasicMovement
         {
             BasicFigure removeWhiteFigure = whitePlayer.ListOfFigures.FirstOrDefault(x => x.CurrentPosition == actualClickFigure.NewPosition);
             if (removeWhiteFigure == null) return false;
-            //delete the black figure
+            //delete the white figure
 
-            chessBoard[removeWhiteFigure.CurrentPosition] = FreeField.FREE_FIELD.ToString(); // delete black figure from chessboard
-            whitePlayer.ListOfFigures.Remove(removeWhiteFigure); // delete black figure from list
+            chessBoard[removeWhiteFigure.CurrentPosition] = FreeField.FREE_FIELD.ToString(); // delete white figure from chessboard
+            whitePlayer.ListOfFigures.Remove(removeWhiteFigure); // delete white figure from list
             return true;
         }
 
