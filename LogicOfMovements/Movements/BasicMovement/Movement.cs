@@ -19,6 +19,7 @@ namespace ChessGameApp.LogicOfMovements.Movements.BasicMovement
         public abstract bool CheckIfCorrectMovementWhiteFigure(BasicFigure actualClickFigure, bool freeField);
         public abstract bool CheckIfCorrectMovementBlackFigure(BasicFigure actualClickFigure, bool freeField);
 
+
         public void ChangePositionOfFigure(BasicFigure actualClickFigure, Player listOfPlayers, Dictionary<string, string> chessBoard)
         {
             BasicFigure currentFigure = listOfPlayers.ListOfFigures.FirstOrDefault(x => x == actualClickFigure);
