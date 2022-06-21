@@ -24,6 +24,7 @@ namespace ChessGameApp.LogicOfMovements
             Movement.Add(new PawnMovement()); // 0 -> pawn movement
             Movement.Add(new RookMovement()); // 1 -> rook movement
             Movement.Add(new KnightMovement()); // 2 -> knight movement
+            Movement.Add(new BishopMovement()); // 3 -> bishop movement
 
             ChessBoard = new Dictionary<string, string>();
 
@@ -106,7 +107,7 @@ namespace ChessGameApp.LogicOfMovements
                     break;
 
                 case "FIRST_WHITE_BISHOP":
-
+                    Movement.ElementAt(3).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "WHITE_KING":
@@ -118,7 +119,7 @@ namespace ChessGameApp.LogicOfMovements
                     break;
 
                 case "SECOND_WHITE_BISHOP":
-
+                    Movement.ElementAt(3).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "SECOND_WHITE_KNIGHT":
@@ -181,7 +182,7 @@ namespace ChessGameApp.LogicOfMovements
                     break;
 
                 case "FIRST_BLACK_BISHOP":
-
+                    Movement.ElementAt(3).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "BLACK_KING":
@@ -193,7 +194,7 @@ namespace ChessGameApp.LogicOfMovements
                     break;
 
                 case "SECOND_BLACK_BISHOP":
-
+                    Movement.ElementAt(3).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "SECOND_BLACK_KNIGHT":

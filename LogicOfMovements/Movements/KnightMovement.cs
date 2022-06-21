@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ChessGameApp.LogicOfMovements.Movements
 {
-    class KnightMovement : Movement
+   public class KnightMovement : Movement
     {
         public override bool MoveFigure(BasicFigure actualClickFigure, List<Player> listOfPlayers, Dictionary<string, string> chessBoard, bool isMoveWhite)
         {
