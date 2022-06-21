@@ -93,7 +93,7 @@ namespace ChessGameApp.LogicOfMovements.Movements
             {
                 result = true;
             }
-            else if (currentNumberRow + 2 == newPositionNumberRow && rightSecondTemporaryLetterColumn == newPositionLetterColumn) // change letterColumn right -> 2, change numberRow down -> 1 // change numberRow down -> 1, change letterColumn right -> 2  example C3 -> E4
+            else if (currentNumberRow + 1 == newPositionNumberRow && rightSecondTemporaryLetterColumn == newPositionLetterColumn) // change letterColumn right -> 2, change numberRow down -> 1 // change numberRow down -> 1, change letterColumn right -> 2  example C3 -> E4
             {
                 result = true;
             }
