@@ -80,11 +80,11 @@ namespace ChessGameApp.LogicOfMovements
 
         public void SearchByMove(BasicFigure actualClickFigure, List<Player> listOfPlayers, bool isMoveWhite)
         {
-            if (isMoveWhite)
+            if (isMoveWhite) // white figures
             {
                 CheckWhiteFigures(actualClickFigure, listOfPlayers, isMoveWhite);
             }
-            else
+            else // black figures
             {
                 CheckBlackFigures(actualClickFigure, listOfPlayers, isMoveWhite);
             }

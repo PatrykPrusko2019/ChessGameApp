@@ -59,43 +59,70 @@ namespace ChessGameApp.LogicOfMovements.Movements.BasicMovement
             string newPosition = newPositionLetterColumn + "" + newPositionNumberRow;
 
             // check 4 possibilities : north-west
-            char firstNorthWestOrSouthWestLetterColumn = (char)(currentLetterColumn - 1); // check  char firstNorthWestOrSouthWestLetterColumn = currentLetterColumn - 1;
-            char secondNorthWestOrSouthWestLetterColumn = (char)(currentLetterColumn - 2);
+            char firstWestLetterColumn = (char)(currentLetterColumn - 1); // check  char firstNorthWestOrSouthWestLetterColumn = currentLetterColumn - 1;
+            char secondEastLetterColumn = (char)(currentLetterColumn + 1);
             
 
             // north-west -> north: numberRow, west: letterColumn
             if (currentNumberRow > newPositionNumberRow && currentLetterColumn > newPositionLetterColumn) // D4 -> A1
             {
-                for (currentNumberRow = currentNumberRow - 1; (firstNorthWestOrSouthWestLetterColumn > (char)(newPositionLetterColumn - 1) ) && (currentNumberRow > newPositionNumberRow - 1) ; currentNumberRow--)
+                for (currentNumberRow = currentNumberRow - 1; (firstWestLetterColumn > (char)(newPositionLetterColumn - 1) ) && (currentNumberRow > newPositionNumberRow - 1) ; currentNumberRow--)
                 {
-                    string tempNextNewPosition = firstNorthWestOrSouthWestLetterColumn + "" + currentNumberRow;
+                    string tempNextNewPosition = firstWestLetterColumn + "" + currentNumberRow;
                     if (!CheckIfFieldIsEmpty(tempNextNewPosition))
                     {
                         if (tempNextNewPosition == newPosition && !freeField) return true;  // remove figure white or black
                         else return false;
                     }
-                    firstNorthWestOrSouthWestLetterColumn--;
+                    firstWestLetterColumn--;
                 }
                 result = true;
             }
-            else if (currentNumberRow < newPositionNumberRow && currentLetterColumn > newPositionLetterColumn) // south-west -> south: numberRow, west: letterColumn, D4 -> A8
+            else if (currentNumberRow < newPositionNumberRow && currentLetterColumn > newPositionLetterColumn) // south-west -> south: numberRow, west: letterColumn, D4 -> A7
             {
-                for (currentNumberRow = currentNumberRow + 1; (firstNorthWestOrSouthWestLetterColumn > (char)(newPositionLetterColumn - 1)) && (currentNumberRow < newPositionNumberRow + 1); currentNumberRow++)
+                for (currentNumberRow = currentNumberRow + 1; (firstWestLetterColumn > (char)(newPositionLetterColumn - 1)) && (currentNumberRow < newPositionNumberRow + 1); currentNumberRow++)
                 {
-                    string tempNextNewPosition = firstNorthWestOrSouthWestLetterColumn + "" + currentNumberRow;
+                    string tempNextNewPosition = firstWestLetterColumn + "" + currentNumberRow;
                     if (!CheckIfFieldIsEmpty(tempNextNewPosition))
                     {
                         if (tempNextNewPosition == newPosition && !freeField) return true;  // remove figure white or black
                         else return false;
                     }
-                    firstNorthWestOrSouthWestLetterColumn--;
+                    firstWestLetterColumn--;
+                }
+                result = true;
+            }
+            else if (currentNumberRow > newPositionNumberRow && currentLetterColumn < newPositionLetterColumn) // north-east -> north: numberRow, east: letterColumn, D4 -> G7
+            {
+                for (currentNumberRow = currentNumberRow - 1; (secondEastLetterColumn < (char)(newPositionLetterColumn + 1)) && (currentNumberRow > newPositionNumberRow - 1); currentNumberRow--)
+                {
+                    string tempNextNewPosition = secondEastLetterColumn + "" + currentNumberRow;
+                    if (!CheckIfFieldIsEmpty(tempNextNewPosition))
+                    {
+                        if (tempNextNewPosition == newPosition && !freeField) return true;  // remove figure white or black
+                        else return false;
+                    }
+                    secondEastLetterColumn++;
+                }
+                result = true;
+            }
+            else if (currentNumberRow < newPositionNumberRow && currentLetterColumn < newPositionLetterColumn) // south-east -> south: numberRow, east: letterColumn, D4 -> H8
+            {
+                for (currentNumberRow = currentNumberRow + 1; (secondEastLetterColumn < (char)(newPositionLetterColumn + 1)) && (currentNumberRow < newPositionNumberRow + 1); currentNumberRow++)
+                {
+                    string tempNextNewPosition = secondEastLetterColumn + "" + currentNumberRow;
+                    if (!CheckIfFieldIsEmpty(tempNextNewPosition))
+                    {
+                        if (tempNextNewPosition == newPosition && !freeField) return true;  // remove figure white or black
+                        else return false;
+                    }
+                    secondEastLetterColumn++;
                 }
                 result = true;
             }
 
 
             return result;
-            
         }
 
         public bool CheckIfFieldIsEmpty(string tempLetterColumnAndNumberRow)
