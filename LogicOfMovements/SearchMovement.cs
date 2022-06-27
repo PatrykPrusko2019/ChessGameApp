@@ -25,6 +25,7 @@ namespace ChessGameApp.LogicOfMovements
             Movement.Add(new RookMovement()); // 1 -> rook movement
             Movement.Add(new KnightMovement()); // 2 -> knight movement
             Movement.Add(new BishopMovement()); // 3 -> bishop movement
+            Movement.Add(new KingMovement()); // 4 -> king movement
 
             ChessBoard = new Dictionary<string, string>();
 
@@ -111,7 +112,7 @@ namespace ChessGameApp.LogicOfMovements
                     break;
 
                 case "WHITE_KING":
-
+                    Movement.ElementAt(4).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "WHITE_QUEEN":
@@ -186,7 +187,7 @@ namespace ChessGameApp.LogicOfMovements
                     break;
 
                 case "BLACK_KING":
-
+                    Movement.ElementAt(4).MoveFigure(actualClickFigure, listOfPlayers, ChessBoard, isMoveWhite);
                     break;
 
                 case "BLACK_QUEEN":
