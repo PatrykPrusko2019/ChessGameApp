@@ -45,7 +45,6 @@ namespace ChessGameApp.LogicOfMovements.Movements
 
         public override bool CheckIfCorrectMovementWhiteOrBlackFigure(BasicFigure actualClickFigure, bool freeField)
         {
-            bool result = false;
             char[] currentPosition = actualClickFigure.CurrentPosition.ToCharArray();
             char currentLetterColumn = currentPosition[0];
             int currentNumberRow = int.Parse(currentPosition[1].ToString());
@@ -54,18 +53,9 @@ namespace ChessGameApp.LogicOfMovements.Movements
             int newPositionNumberRow = int.Parse(newPosition[1].ToString());
             char newPositionLetterColumn = newPosition[0];
 
-            if (freeField)
-            { // letters or numbers
-                result = CheckIfLetterOrNumber(currentLetterColumn, currentNumberRow, newPositionNumberRow, newPositionLetterColumn, freeField);
-
-            }
-            else // letters or numbers
-            { // no free field and possibility remove black / white figure
-                result = CheckIfLetterOrNumber(currentLetterColumn, currentNumberRow, newPositionNumberRow, newPositionLetterColumn, freeField);
-
-            }
-
-            return result;
+           // letters or numbers and free field or
+           // no free field and possibility remove black / white figure
+           return CheckIfLetterOrNumber(currentLetterColumn, currentNumberRow, newPositionNumberRow, newPositionLetterColumn, freeField);
         } 
 
         private bool CheckIfLetterOrNumber(char currentLetterColumn, int currentNumberRow, int newPositionNumberRow, char newPositionLetterColumn, bool freeField)
@@ -73,7 +63,7 @@ namespace ChessGameApp.LogicOfMovements.Movements
             bool result = false;
             string newPosition = newPositionLetterColumn + "" + newPositionNumberRow;
 
-            if (currentLetterColumn == newPositionLetterColumn && currentNumberRow + newPositionNumberRow > currentNumberRow) // A == A && 1 + 4 > 1 -> down
+            if (currentLetterColumn == newPositionLetterColumn && currentNumberRow < newPositionNumberRow) // A == A && 1 + 4 > 1 -> down
             {
                 for (int i = currentNumberRow + 1; i < newPositionNumberRow + 1; i++) // 2 < 5
                 {
@@ -88,7 +78,7 @@ namespace ChessGameApp.LogicOfMovements.Movements
                 }
                 result = true;
             }
-            else if (currentLetterColumn == newPositionLetterColumn && currentNumberRow - newPositionNumberRow < currentNumberRow) // A == A && 4 - 1 < 4 -> up
+            else if (currentLetterColumn == newPositionLetterColumn && currentNumberRow > newPositionNumberRow) // A == A && 4 - 1 < 4 -> up
             {
                 for (int i = currentNumberRow - 1; i > newPositionNumberRow - 1; i--) // 3 > 0
                 {
@@ -103,7 +93,7 @@ namespace ChessGameApp.LogicOfMovements.Movements
                 }
                 result = true;
             }
-            else if (currentNumberRow == newPositionNumberRow && currentLetterColumn + newPositionLetterColumn > currentNumberRow) // 4 == 4 && A + H > A -> right
+            else if (currentNumberRow == newPositionNumberRow && currentLetterColumn < newPositionLetterColumn) // 4 == 4 && A + H > A -> right
             {
                 for (char c = (char)(currentLetterColumn + 1); c < (char)(newPositionLetterColumn + 1); c++) // B < I
                 {
@@ -118,7 +108,7 @@ namespace ChessGameApp.LogicOfMovements.Movements
                 result = true;
 
             }
-            else if (currentNumberRow == newPositionNumberRow && currentLetterColumn - newPositionLetterColumn < currentNumberRow) // 4 == 4 && H - A < H -> left
+            else if (currentNumberRow == newPositionNumberRow && currentLetterColumn > newPositionLetterColumn) // 4 == 4 && H - A < H -> left
             {
                 for (char c = (char)(currentLetterColumn - 1); c > (char)(newPositionLetterColumn - 1); c--) // G > A-1
                 {
