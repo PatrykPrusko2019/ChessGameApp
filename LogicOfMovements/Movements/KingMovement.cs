@@ -81,11 +81,11 @@ namespace ChessGameApp.LogicOfMovements.Movements
             {
                 result = true;
             }
-            else if (currentNumberRow-1 == newPositionNumberRow && currentLetterColumn == newPositionLetterColumn) // up -> B5 -> B4 , numberRow : change
+            else if (currentNumberRow - 1 == newPositionNumberRow && currentLetterColumn == newPositionLetterColumn) // up -> B5 -> B4 , numberRow : change
             {
                 result = true;
             }
-            else if (currentNumberRow+1 == newPositionNumberRow && currentLetterColumn == newPositionLetterColumn) // down -> B5 -> B6, numberRow : change
+            else if (currentNumberRow + 1 == newPositionNumberRow && currentLetterColumn == newPositionLetterColumn) // down -> B5 -> B6, numberRow : change
             {
                 result = true;
             }
@@ -102,19 +102,19 @@ namespace ChessGameApp.LogicOfMovements.Movements
 
 
             // north-west -> north: numberRow, west: letterColumn
-            if (currentNumberRow-1 == newPositionNumberRow && firstWestLetterColumn == newPositionLetterColumn) // B5 -> A4
+            if (currentNumberRow - 1 == newPositionNumberRow && firstWestLetterColumn == newPositionLetterColumn) // B5 -> A4
             {
                 result = true;
             }
-            else if (currentNumberRow+1 == newPositionNumberRow && firstWestLetterColumn == newPositionLetterColumn) // south-west -> south: numberRow, west: letterColumn, B5 -> A6
+            else if (currentNumberRow + 1 == newPositionNumberRow && firstWestLetterColumn == newPositionLetterColumn) // south-west -> south: numberRow, west: letterColumn, B5 -> A6
             {
                 result = true;
             }
-            else if (currentNumberRow-1 == newPositionNumberRow && secondEastLetterColumn == newPositionLetterColumn) // north-east -> north: numberRow, east: letterColumn, B5 -> C4
+            else if (currentNumberRow - 1 == newPositionNumberRow && secondEastLetterColumn == newPositionLetterColumn) // north-east -> north: numberRow, east: letterColumn, B5 -> C4
             {
                 result = true;
             }
-            else if (currentNumberRow+1 == newPositionNumberRow && secondEastLetterColumn == newPositionLetterColumn) // south-east -> south: numberRow, east: letterColumn, B5 -> C6
+            else if (currentNumberRow + 1 == newPositionNumberRow && secondEastLetterColumn == newPositionLetterColumn) // south-east -> south: numberRow, east: letterColumn, B5 -> C6
             {
                 result = true;
             }
