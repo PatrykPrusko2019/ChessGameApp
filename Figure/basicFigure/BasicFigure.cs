@@ -17,7 +17,7 @@ namespace ChessGameApp.Figure
         public int Movement { get; set; } // 0 -> no move, 1 -> ok move 
         public BasicFigure(string name, string currentPosition, string newPosition, Button changeFigure)
         {
-            Name = name;
+            Name = name ?? throw new ArgumentNullException(nameof(name));
             CurrentPosition = currentPosition;
             NewPosition = newPosition;
             currentButton = changeFigure;

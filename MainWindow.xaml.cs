@@ -7,6 +7,7 @@ using ChessGameApp.Players;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -172,17 +173,19 @@ namespace ChessGameApp
 
             if (ActualClickFigure == null)
             {
-                if (!CheckIfCorrectPlayerMovement(currentFieldByPlayer)) { MessageBox.Show("Please choose good color of figure !!!"); return; }
+                if (!CheckIfCorrectPlayerMovement(currentFieldByPlayer)) { SystemSounds.Beep.Play(); MessageBox.Show("Please choose good color of figure !!!"); return; }
 
             }
 
             if (isMoveWhite)
             {
                 MoveWhite(currentFieldByPlayer);
+                finishGame();
             }
             else
             {
                 MoveBlack(currentFieldByPlayer);
+                finishGame();
             }
 
 
@@ -217,6 +220,20 @@ namespace ChessGameApp
 
         }
 
+        private void finishGame()
+        {
+            if ( !isMoveWhite )
+            {
+                BasicFigure blackFigureOfKing = ListOfPlayers.ElementAt(1).ListOfFigures.FirstOrDefault(x => BlackFigureNames.BLACK_KING.ToString() == x.Name);
+                if (blackFigureOfKing == null) { MessageBox.Show("Player winner with white figures !!! end game"); Environment.Exit(1); }
+            }
+            else
+            {
+                BasicFigure whiteFigureOfKing = ListOfPlayers.ElementAt(0).ListOfFigures.FirstOrDefault(x => WhiteFigureNames.WHITE_KING.ToString() == x.Name);
+                if (whiteFigureOfKing == null) { MessageBox.Show("Player winner with black figures !!! end game"); Environment.Exit(1); }
+                }
+        }
+
         private bool CheckIfCorrectPlayerMovement(Button currentFieldByPlayer)
         {
             if (isMoveWhite)
@@ -226,7 +243,7 @@ namespace ChessGameApp
                     if (item.CurrentPosition == currentFieldByPlayer.Name)
                     {
                         ActualClickFigure = item;
-                        MessageBox.Show("current position field white -> " + currentFieldByPlayer.Name + ", name of figure: " + item.Name);
+                        // MessageBox.Show("current position field white -> " + currentFieldByPlayer.Name + ", name of figure: " + item.Name);
                         return true;
                     }
                 }
@@ -238,7 +255,7 @@ namespace ChessGameApp
                     if (item.CurrentPosition == currentFieldByPlayer.Name)
                     {
                         ActualClickFigure = item;
-                        MessageBox.Show("current position field black -> " + currentFieldByPlayer.Name + ", name of figure: " + item.Name);
+                        // MessageBox.Show("current position field black -> " + currentFieldByPlayer.Name + ", name of figure: " + item.Name);
                         return true;
                     }
                 }
@@ -250,13 +267,13 @@ namespace ChessGameApp
         {
             if (ActualClickFigure != null && ActualClickFigure.CurrentPosition != currentFieldByPlayer.Name)
             {
-                MessageBox.Show("new position field white -> " + currentFieldByPlayer.Name);
+                // MessageBox.Show("new position field white -> " + currentFieldByPlayer.Name);
                 ActualClickFigure.NewPosition = currentFieldByPlayer.Name;
                 ActualClickFigure.NewButton = currentFieldByPlayer;
                 SearchMovement.SearchByMove(ActualClickFigure, ListOfPlayers, isMoveWhite);
 
                 if (ActualClickFigure.Movement == 1) { isMoveWhite = false; ActualClickFigure.Movement = 0; ActualClickFigure = null; }
-                else { MessageBox.Show("wrong movement. Please choose new white figure !!!"); ActualClickFigure = null; }
+                else { SystemSounds.Beep.Play(); MessageBox.Show("wrong movement. Please choose new white figure !!!"); ActualClickFigure = null; }
 
             }
 
@@ -267,13 +284,13 @@ namespace ChessGameApp
         {
             if (ActualClickFigure != null && ActualClickFigure.CurrentPosition != currentFieldByPlayer.Name)
             {
-                MessageBox.Show("new position field black -> " + currentFieldByPlayer.Name);
+                // MessageBox.Show("new position field black -> " + currentFieldByPlayer.Name);
                 ActualClickFigure.NewPosition = currentFieldByPlayer.Name;
                 ActualClickFigure.NewButton = currentFieldByPlayer;
                 SearchMovement.SearchByMove(ActualClickFigure, ListOfPlayers, isMoveWhite);
 
                 if (ActualClickFigure.Movement == 1) { isMoveWhite = true; ActualClickFigure.Movement = 0; ActualClickFigure = null; }
-                else { MessageBox.Show("wrong movement !!! Please choose new black figure !!!"); ActualClickFigure = null; }
+                else { SystemSounds.Beep.Play(); MessageBox.Show("wrong movement !!! Please choose new black figure !!!"); ActualClickFigure = null; }
             }
 
         }
