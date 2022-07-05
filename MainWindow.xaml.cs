@@ -192,34 +192,6 @@ namespace ChessGameApp
 
 
 
-
-
-
-            // tests change position figure 
-
-            //BasicFigure firstBlackPawn = ListOfFigures.ElementAt(8);
-
-
-
-            //if (currentFieldByPlayer.Name == firstBlackPawn.CurrentPosition) // A2
-            //{
-            //    firstBlackPawn.NumberOfClicks++;
-            //    MessageBox.Show("Good choice !!!");
-
-            //    MessageBox.Show("count = " + firstBlackPawn.NumberOfClicks);
-
-
-            //}
-
-            //if (firstBlackPawn.NumberOfClicks == 2)
-            //{
-            //    firstBlackPawn.CreateFigure();
-            //    firstBlackPawn.ChangeFigure.Content = "";
-            //    firstBlackPawn.ChangeFigure = currentFieldByPlayer;
-            //    firstBlackPawn.CreateFigure();
-
-            //}
-
         }
 
         private void finishGame()
