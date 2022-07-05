@@ -2,10 +2,12 @@
 using ChessGameApp.Figure.ColorBlack;
 using ChessGameApp.Figure.ColorWhite;
 using ChessGameApp.LogicOfMovements;
+using ChessGameApp.MusicOfWinner;
 using ChessGameApp.Names;
 using ChessGameApp.Players;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -225,13 +227,23 @@ namespace ChessGameApp
             if ( !isMoveWhite )
             {
                 BasicFigure blackFigureOfKing = ListOfPlayers.ElementAt(1).ListOfFigures.FirstOrDefault(x => BlackFigureNames.BLACK_KING.ToString() == x.Name);
-                if (blackFigureOfKing == null) { MessageBox.Show("Player winner with white figures !!! end game"); Environment.Exit(1); }
+                if (blackFigureOfKing == null) { InformationForWinner("white"); }
             }
             else
             {
                 BasicFigure whiteFigureOfKing = ListOfPlayers.ElementAt(0).ListOfFigures.FirstOrDefault(x => WhiteFigureNames.WHITE_KING.ToString() == x.Name);
-                if (whiteFigureOfKing == null) { MessageBox.Show("Player winner with black figures !!! end game"); Environment.Exit(1); }
-                }
+                if (whiteFigureOfKing == null) { { InformationForWinner("black"); } }
+            }
+            
+        }
+
+        private void InformationForWinner(string whoWinner)
+        {
+            PlaySound sound = new PlaySound(@"songForWinner.wav"); 
+            sound.PlaySong();
+
+            MessageBox.Show($"Player winner with {whoWinner} figures !!! end game");
+            Environment.Exit(1);
         }
 
         private bool CheckIfCorrectPlayerMovement(Button currentFieldByPlayer)
