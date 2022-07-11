@@ -16,7 +16,7 @@ namespace ChessGameApp.Names
         BLACK_QUEEN,
         SECOND_BLACK_BISHOP,
         SECOND_BLACK_KNIGHT,
-        SECOND_BLACK_ROCK,
+        SECOND_BLACK_ROOK,
         FIRST_BLACK_PAWN,
         SECOND_BLACK_PAWN,
         THIRD_BLACK_PAWN,

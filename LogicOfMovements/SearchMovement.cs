@@ -38,10 +38,10 @@ namespace ChessGameApp.LogicOfMovements
             ChessBoard.Add("E1", BlackFigureNames.BLACK_QUEEN.ToString());
             ChessBoard.Add("F1", BlackFigureNames.SECOND_BLACK_BISHOP.ToString());
             ChessBoard.Add("G1", BlackFigureNames.SECOND_BLACK_KNIGHT.ToString());
-            ChessBoard.Add("H1", BlackFigureNames.SECOND_BLACK_ROCK.ToString());
+            ChessBoard.Add("H1", BlackFigureNames.SECOND_BLACK_ROOK.ToString());
 
             ChessBoard.Add("A2", BlackFigureNames.FIRST_BLACK_PAWN.ToString());
-            ChessBoard.Add("B2", BlackFigureNames.SECOND_BLACK_ROCK.ToString());
+            ChessBoard.Add("B2", BlackFigureNames.SECOND_BLACK_ROOK.ToString());
             ChessBoard.Add("C2", BlackFigureNames.THIRD_BLACK_PAWN.ToString());
             ChessBoard.Add("D2", BlackFigureNames.FOURTH_BLACK_PAWN.ToString());
             ChessBoard.Add("E2", BlackFigureNames.FIFTH_BLACK_PAWN.ToString());

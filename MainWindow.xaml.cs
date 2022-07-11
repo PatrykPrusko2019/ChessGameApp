@@ -25,7 +25,7 @@ using System.Windows.Shapes;
 namespace ChessGameApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Game of Chess
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -62,7 +62,7 @@ namespace ChessGameApp
             secondBlackBishop.CreateFigure();
             BlackKnight secondBlackKnight = new BlackKnight(BlackFigureNames.SECOND_BLACK_KNIGHT.ToString(), "G1", "", G1);
             secondBlackKnight.CreateFigure();
-            BlackRook secondBlackRook = new BlackRook(BlackFigureNames.SECOND_BLACK_ROCK.ToString(), "H1", "", H1);
+            BlackRook secondBlackRook = new BlackRook(BlackFigureNames.SECOND_BLACK_ROOK.ToString(), "H1", "", H1);
             secondBlackRook.CreateFigure();
 
             BlackPawn firstBlackPawn = new BlackPawn(BlackFigureNames.FIRST_BLACK_PAWN.ToString(), "A2", "", A2);
