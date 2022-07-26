@@ -72,4 +72,4 @@ capturing opponent's pieces.
 5. King → possibility to move one field up, down, left,
 law. The same possibility of capturing figures.
 
-6. Queen → ability to move and be captured
+6. Queen → the ability to move and capture the opponent's pieces in the same way as the ROOK and BISHOP pieces.
