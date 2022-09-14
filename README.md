@@ -1,7 +1,7 @@
 ﻿# ChessGameApp
 
 Description with photos -> Description_of_the_game_of_chess_with_photos/Description_of_the_game_of_chess.pdf
-bin\publish -> exe file play of chess is located -> publish_file_exe.rar
+Exe file play of chess is located -> publish_file_exe.rar
 
 Using C# + WPF in visual studio 2019.
 

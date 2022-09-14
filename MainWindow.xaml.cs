@@ -211,8 +211,33 @@ namespace ChessGameApp
 
         private void InformationForWinner(string whoWinner)
         {
-            PlaySound sound = new PlaySound(@"songForWinner.wav"); 
+            string pathWithSong = System.IO.Path.GetFullPath("songForWinner.wav");
+
+            if (!File.Exists(pathWithSong))
+            {
+                string sourceFile;
+                string destinationFile;
+
+                if (pathWithSong.ToLower().Contains("debug")) sourceFile = pathWithSong.Replace(@"\bin\Debug\net5.0-windows", "");
+                else sourceFile = pathWithSong.Replace(@"\bin\Release\net5.0-windows", "");
+                destinationFile = pathWithSong;
+
+                sourceFile = sourceFile.Replace(@"\publish", "");
+
+                try
+                {
+                    File.Copy(sourceFile, destinationFile, true);
+                }
+                catch (IOException iox)
+                {
+                    MessageBox.Show(iox.Message);
+                }
+
+            }
+
+            PlaySound sound = new PlaySound(pathWithSong);
             sound.PlaySong();
+
 
             MessageBox.Show($"Player winner with {whoWinner} figures !!! end game");
             Environment.Exit(1);
